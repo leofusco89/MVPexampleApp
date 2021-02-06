@@ -31,6 +31,13 @@ class LoginActivity : AppCompatActivity(), LoginActivityView {
         setupUI()
     }
 
+    private fun createPresenter() {
+        presenter = LoginPresenterImp(
+                this,
+                LoginRepositoryImp(UserApiImp())
+        )
+    }
+
     private fun setupUI() {
         etUser = findViewById(R.id.etEmail)
         etPassword = findViewById(R.id.etPassword)
@@ -43,13 +50,6 @@ class LoginActivity : AppCompatActivity(), LoginActivityView {
                 etPassword.text.toString()
             )
         }
-    }
-
-    private fun createPresenter() {
-        presenter = LoginPresenterImp(
-            this,
-            LoginRepositoryImp(UserApiImp())
-        )
     }
 
     override fun showLoading() {
@@ -74,6 +74,6 @@ class LoginActivity : AppCompatActivity(), LoginActivityView {
 
     override fun goToNextScreen(user: UserResponse) {
         Toast.makeText(this, "Bienvenido ${user.firstName}", Toast.LENGTH_LONG).show()
-        //Mostrar siguiente pantalla
+        //Y acá se debería ir a la activity Home
     }
 }
