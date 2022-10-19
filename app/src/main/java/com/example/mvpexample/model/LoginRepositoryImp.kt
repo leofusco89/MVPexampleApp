@@ -26,8 +26,12 @@ class LoginRepositoryImp(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                    { responseSuccess.invoke(it) },
-                    { responseError.invoke(it.message!!) }
+                    {
+                        responseSuccess.invoke(it)
+                    },
+                    {
+                        responseError.invoke(it.message!!)
+                    }
                 )
         )
     }

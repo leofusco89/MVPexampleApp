@@ -9,7 +9,7 @@ class UserApiImp : UserApi {
     override fun login(user: User): Single<UserResponse> =
         Single.just(UserResponse("Jose", "Argento"))
 
-    override fun loginError(): Single<UserResponse> = Single.error(Throwable("Datos incorrectos"))
+//    override fun loginError(): Single<UserResponse> = Single.error(Throwable("Datos incorrectos"))
 
 }
 
@@ -17,6 +17,6 @@ interface UserApi {
 
     fun login(user: User): Single<UserResponse>
 
-    fun loginError(): Single<UserResponse>
+//    fun loginError(): Single<UserResponse>
 
 }
